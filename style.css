@@ -1,0 +1,338 @@
+html, body {
+    width: 100%;
+    margin: 0px;
+    padding: 0px;
+    height: 100%;
+    overflow-x: hidden;
+    background-color: #47576b; }
+  
+  body {
+    font-size: 16px;
+    margin: 0px;
+    padding: 0px;
+    text-rendering: optimizeLegibility;
+    -webkit-font-smoothing: subpixel-antialiased;
+    font-family: "karla", sans-serif;
+    overflow-x: hidden; }
+  
+  @-webkit-keyframes second {
+    to {
+      -webkit-transform: rotateZ(360deg);
+      -moz-transform: rotateZ(360deg);
+      -ms-transform: rotateZ(360deg);
+      -o-transform: rotateZ(360deg);
+      transform: rotateZ(360deg); } }
+  
+  @-webkit-keyframes second-bounce {
+    10% {
+      -webkit-transform: rotateZ(2deg);
+      -moz-transform: rotateZ(2deg);
+      -ms-transform: rotateZ(2deg);
+      -o-transform: rotateZ(2deg);
+      transform: rotateZ(2deg); }
+  
+    /*	59% {@include prefix(transform, rotateZ(0deg))}	*/
+    20% {
+      -webkit-transform: rotateZ(-1deg);
+      -moz-transform: rotateZ(-1deg);
+      -ms-transform: rotateZ(-1deg);
+      -o-transform: rotateZ(-1deg);
+      transform: rotateZ(-1deg); }
+  
+    30% {
+      -webkit-transform: rotateZ(0deg);
+      -moz-transform: rotateZ(0deg);
+      -ms-transform: rotateZ(0deg);
+      -o-transform: rotateZ(0deg);
+      transform: rotateZ(0deg); }
+  
+    99% {
+      -webkit-transform: rotateZ(0deg);
+      -moz-transform: rotateZ(0deg);
+      -ms-transform: rotateZ(0deg);
+      -o-transform: rotateZ(0deg);
+      transform: rotateZ(0deg); }
+  
+    100% {
+      -webkit-transform: rotateZ(0deg);
+      -moz-transform: rotateZ(0deg);
+      -ms-transform: rotateZ(0deg);
+      -o-transform: rotateZ(0deg);
+      transform: rotateZ(0deg); } }
+  
+  @-webkit-keyframes minute {
+    0% {
+      -webkit-transform: rotateZ(80deg);
+      -moz-transform: rotateZ(80deg);
+      -ms-transform: rotateZ(80deg);
+      -o-transform: rotateZ(80deg);
+      transform: rotateZ(80deg); }
+  
+    100% {
+      -webkit-transform: rotateZ(440deg);
+      -moz-transform: rotateZ(440deg);
+      -ms-transform: rotateZ(440deg);
+      -o-transform: rotateZ(440deg);
+      transform: rotateZ(440deg); } }
+  
+  @-webkit-keyframes hour {
+    0% {
+      -webkit-transform: rotateZ(220deg);
+      -moz-transform: rotateZ(220deg);
+      -ms-transform: rotateZ(220deg);
+      -o-transform: rotateZ(220deg);
+      transform: rotateZ(220deg); }
+  
+    100% {
+      -webkit-transform: rotateZ(580deg);
+      -moz-transform: rotateZ(580deg);
+      -ms-transform: rotateZ(580deg);
+      -o-transform: rotateZ(580deg);
+      transform: rotateZ(580deg); } }
+  
+  .watch {
+    position: absolute;
+    width: 10em;
+    background-color: #120171;
+    height: 100%;
+    margin: 0 auto;
+    left: 0;
+    right: 0; }
+  
+  .clock-container {
+    width: 20em;
+    height: 20em;
+    left: -6em;
+    top: 50%;
+    margin-top: -10em;
+    background-color: #2d316f;
+    border-radius: 12em;
+    position: relative;
+    border: 1em solid #111;
+    /*	overflow: hidden;*/ }
+    .clock-container:after {
+      content: "";
+      height: 2em;
+      width: 1em;
+      background-color: #000;
+      position: absolute;
+      right: -2em;
+      top: 50%;
+      margin-top: -1em; }
+    .clock-container .logo {
+      position: absolute;
+      top: 25%;
+      text-align: center;
+      color: #FFF;
+      margin: 0 auto;
+      left: 0;
+      right: 0;
+      z-index: 1; }
+    .clock-container .chronograph {
+      width: 3em;
+      height: 3em;
+      position: absolute;
+      margin: 0 auto;
+      left: 0;
+      right: 0;
+      overflow: hidden;
+      z-index: 3;
+      border: 0.15em solid #777;
+      border-radius: 3em;
+      bottom: 3.5em; }
+      .clock-container .chronograph .notches {
+        list-style: none;
+        padding: 0;
+        margin: 0 auto; }
+        .clock-container .chronograph .notches li {
+          height: 3em;
+          width: 0.1em;
+          background-color: white s; }
+      .clock-container .chronograph:after {
+        content: "";
+        width: 2.5em;
+        height: 2.5em;
+        border-radius: 1.5em;
+        background-color: #222;
+        position: absolute;
+        margin: 0 auto;
+        left: 0;
+        right: 0;
+        top: 50%;
+        margin-top: -1.25em;
+        z-index: 3; }
+      .clock-container .chronograph .hand {
+        width: 3em;
+        height: 3em;
+        position: absolute;
+        z-index: 4; }
+      .clock-container .chronograph .second {
+        z-index: 6;
+        -webkit-animation: second 30s steps(120, end) infinite;
+        -moz-animation: second 30s steps(120, end) infinite;
+        -ms-animation: second 30s steps(120, end) infinite;
+        -o-animation: second 30s steps(120, end) infinite;
+        animation: second 30s steps(120, end) infinite; }
+        .clock-container .chronograph .second:after {
+          content: "";
+          background-color: #fff;
+          width: 0.1em;
+          height: 1.25em;
+          /*				margin-bottom: 0.5em;*/
+          position: absolute;
+          margin: 0 auto;
+          left: 0;
+          right: 0;
+          top: .25em;
+          -webkit-transform-origin: 0% 100%;
+          -moz-transform-origin: 0% 100%;
+          -ms-transform-origin: 0% 100%;
+          -o-transform-origin: 0% 100%;
+          transform-origin: 0% 100%;
+          /*				@include prefix(animation, second-bounce 0.5s  infinite);*/ }
+    .clock-container .notches {
+      list-style: none;
+      padding: 0;
+      margin: 0 auto; }
+      .clock-container .notches li {
+        height: 20em;
+        width: 0.2em;
+        background-color: #fff;
+        position: absolute;
+        margin: 0 auto;
+        left: 0;
+        right: 0; }
+        .clock-container .notches li:nth-child(2) {
+          -webkit-transform: rotateZ(30deg);
+          -moz-transform: rotateZ(30deg);
+          -ms-transform: rotateZ(30deg);
+          -o-transform: rotateZ(30deg);
+          transform: rotateZ(30deg); }
+        .clock-container .notches li:nth-child(3) {
+          -webkit-transform: rotateZ(60deg);
+          -moz-transform: rotateZ(60deg);
+          -ms-transform: rotateZ(60deg);
+          -o-transform: rotateZ(60deg);
+          transform: rotateZ(60deg); }
+        .clock-container .notches li:nth-child(4) {
+          -webkit-transform: rotateZ(90deg);
+          -moz-transform: rotateZ(90deg);
+          -ms-transform: rotateZ(90deg);
+          -o-transform: rotateZ(90deg);
+          transform: rotateZ(90deg); }
+        .clock-container .notches li:nth-child(5) {
+          -webkit-transform: rotateZ(120deg);
+          -moz-transform: rotateZ(120deg);
+          -ms-transform: rotateZ(120deg);
+          -o-transform: rotateZ(120deg);
+          transform: rotateZ(120deg); }
+        .clock-container .notches li:nth-child(6) {
+          -webkit-transform: rotateZ(150deg);
+          -moz-transform: rotateZ(150deg);
+          -ms-transform: rotateZ(150deg);
+          -o-transform: rotateZ(150deg);
+          transform: rotateZ(150deg); }
+    .clock-container .hand {
+      width: 20em;
+      height: 20em;
+      position: absolute; }
+    .clock-container .second {
+      z-index: 6;
+      -webkit-animation: second 60s steps(60, end) infinite;
+      -moz-animation: second 60s steps(60, end) infinite;
+      -ms-animation: second 60s steps(60, end) infinite;
+      -o-animation: second 60s steps(60, end) infinite;
+      animation: second 60s steps(60, end) infinite; }
+      .clock-container .second:after {
+        content: "";
+        background-color: red;
+        width: 0.4em;
+        height: 9.25em;
+        margin-top: 1em;
+        z-index: 3;
+        position: absolute;
+        margin: 0 auto;
+        left: 0;
+        right: 0;
+        top: .75em;
+        -webkit-transform-origin: 0% 100%;
+        -moz-transform-origin: 0% 100%;
+        -ms-transform-origin: 0% 100%;
+        -o-transform-origin: 0% 100%;
+        transform-origin: 0% 100%;
+        -webkit-animation: second-bounce 1s infinite;
+        -moz-animation: second-bounce 1s infinite;
+        -ms-animation: second-bounce 1s infinite;
+        -o-animation: second-bounce 1s infinite;
+        animation: second-bounce 1s infinite; }
+    .clock-container .minute {
+      z-index: 5;
+      -webkit-animation: minute 3600s linear infinite;
+      -moz-animation: minute 3600s linear infinite;
+      -ms-animation: minute 3600s linear infinite;
+      -o-animation: minute 3600s linear infinite;
+      animation: minute 3600s linear infinite; }
+      .clock-container .minute:after {
+        content: "";
+        background-color: #fff;
+        width: 0.4em;
+        height: 9.25em;
+        margin-top: 0.75em;
+        position: absolute;
+        margin: 0 auto;
+        left: 0;
+        right: 0;
+        top: .75em;
+        -webkit-transform-origin: 0% 100%;
+        -moz-transform-origin: 0% 100%;
+        -ms-transform-origin: 0% 100%;
+        -o-transform-origin: 0% 100%;
+        transform-origin: 0% 100%; }
+    .clock-container .hour {
+      z-index: 4;
+      -webkit-animation: hour 43200s linear infinite;
+      -moz-animation: hour 43200s linear infinite;
+      -ms-animation: hour 43200s linear infinite;
+      -o-animation: hour 43200s linear infinite;
+      animation: hour 43200s linear infinite; }
+      .clock-container .hour:after {
+        content: "";
+        background-color: #fff;
+        width: 0.8em;
+        height: 5em;
+        margin: 0 auto;
+        left: 0;
+        right: 0;
+        margin-top: 5em;
+        position: absolute;
+        -webkit-transform-origin: 0% 100%;
+        -moz-transform-origin: 0% 100%;
+        -ms-transform-origin: 0% 100%;
+        -o-transform-origin: 0% 100%;
+        transform-origin: 0% 100%; }
+    .clock-container .center-mask {
+      width: 18em;
+      height: 18em;
+      background-color: inherit;
+      border-radius: 9em;
+      position: absolute;
+      z-index: 1;
+      margin: 0 auto;
+      left: 0;
+      right: 0;
+      margin-top: 1em; }
+      .clock-container .center-mask:after {
+        content: "";
+        width: 2em;
+        height: 2em;
+        border-radius: 1.5em;
+        background-color: #000;
+        border: 0.2em solid #666;
+        position: absolute;
+        margin: 0 auto;
+        left: 0;
+        right: 0;
+        top: 50%;
+        margin-top: -1em;
+        z-index: 3; }
+  
